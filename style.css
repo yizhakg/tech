@@ -10,7 +10,7 @@
   scroll-behavior: smooth;
 }
 body{
-  direction: rtl;
+  /* direction: rtl; */
 }
 nav {
   position: sticky;
@@ -267,6 +267,9 @@ footer img {
   }
   nav .navUl {
     display: none;
+  }
+  .header{
+    font-size: 1.7em;
   }
   .container {
     line-height: 30px;
