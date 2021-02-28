@@ -86,10 +86,10 @@ header .downArw {
 @keyframes upDown {
   0%,
   100% {
-    transform: translateY(50px);
+    transform: translateY(20px);
   }
   50% {
-    transform: translateY(75px);
+    transform: translateY(55px);
   }
 }
 main {
@@ -125,6 +125,7 @@ main {
   list-style-type: none;
   cursor: pointer;
   transition: 0.5s;
+  margin-right:10px ;
 }
 #cont4 ul li:hover {
   background: #111;
