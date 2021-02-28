@@ -20,6 +20,37 @@ nav {
   align-items: center;
   z-index: 10;
 }
+.toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: none;
+}
+.toggle:hover,
+.toggle.active {
+  background: #111;
+}
+.toggle:hover::before,
+.toggle.active::before {
+  color: #fff;
+}
+.toggle::before {
+  content: "\f0c9 ";
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #111;
+}
+.toggle.active::before {
+  content: "\f00d";
+}
 nav img {
   height: 60px;
   width: 60px;
@@ -55,7 +86,7 @@ header {
   font-size: 2em;
   text-align: center;
   line-height: 80px;
-  background: url('./Img/bgImage.png');
+  background: url("./Img/bgImage.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -125,7 +156,7 @@ main {
   list-style-type: none;
   cursor: pointer;
   transition: 0.5s;
-  margin-right:10px ;
+  margin-right: 10px;
 }
 #cont4 ul li:hover {
   background: #111;
@@ -180,7 +211,11 @@ main {
   font-weight: 600;
   background: rgba(255, 255, 255, 0.8);
 }
-
+.jobsNav .apply.active{
+  background: tomato;
+  color: #fff;
+  font-weight: 600;
+}
 .insideBox {
   position: relative;
   height: 100%;
@@ -222,19 +257,24 @@ main {
   line-height: 2.3em;
   text-align: justify;
 }
-.insideBox .applying {
+.insideBox #applying {
+  display: block;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px 10px;
+  margin-top: 20px;
   font-size: 1.5em;
   background: transparent;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  outline: none;
-  padding: 4px 10px;
-  margin: 20px 0;
   cursor: pointer;
   transition: 0.3s;
 }
-.insideBox .applying:hover {
+.insideBox #applying:hover {
   background: #111;
+  color: #fff;
+}
+.insideBox #applying:hover i {
   color: #fff;
 }
 footer {
@@ -262,15 +302,14 @@ footer img {
   body {
     font-size: 12px;
   }
-  nav .navUl {
-    display: none;
-  }
-  .header{
+
+  .header {
     font-size: 1.7em;
   }
   .container {
     line-height: 30px;
     width: 70%;
+    min-height: unset;
   }
   #cont4 {
     flex-direction: column;
@@ -278,6 +317,38 @@ footer img {
   }
   #cont4 img {
     display: none;
+  }
+  #cont4 ul {
+    margin: 40px 0;
+  }
+  .toggle {
+    display: block;
+  }
+  nav .navUl {
+    position: absolute;
+    top: 60px;
+    z-index: -1;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    margin: 0;
+    transition: 1s;
+  }
+  nav .navUl.active {
+    height: calc(100vh - 60px);
+  }
+  nav .navUl li {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  nav .navUl li a {
+    height: 100%;
+    line-height: 450%;
   }
   /* --------------- */
   .currentJob.active {
@@ -296,7 +367,12 @@ footer img {
   .insideBox {
     border-radius: 0;
   }
-  .insideBox p {
+  .currentJob #currentJobTitle {
+    text-align: center;
+  }
+  .insideBox .jobsInfo p {
     width: 90%;
+    line-height: 2.3em;
+    text-align: justify;
   }
 }

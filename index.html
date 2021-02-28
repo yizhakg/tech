@@ -9,20 +9,23 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body dir="rtl">
   <nav class="nav">
+    <div class="toggle" onclick="toggleMenu()"></div>
     <ul class="navUl">
-      <li><a href="#">בית</a></li>
-      <li><a href="#cont1">מי</a></li>
-      <li><a href="#cont2">מה</a></li>
-      <li><a href="#cont3">למה</a></li>
-      <li><a href="#cont4">המשרות</a></li>
+      <li onclick="toggleMenu()"><a href="#">בית</a></li>
+      <li onclick="toggleMenu()"><a href="#cont1">מי</a></li>
+      <li onclick="toggleMenu()"><a href="#cont2">מה</a></li>
+      <li onclick="toggleMenu()"><a href="#cont3">למה</a></li>
+      <li onclick="toggleMenu()"><a href="#cont4">המשרות</a></li>
     </ul>
     <img src="./Img/logo.png" alt="logo">
   </nav>
-  
+
   <header id="header">
     <h3><span><img src="./Img/logo.png" alt=""></span>קריירה <br /> גדלה ומגייסת אנשי מקצוע נוספים לשורותיה</h3>
 
@@ -111,9 +114,10 @@
   </main>
   <div class="currentJob">
     <ul id="jobsNav" class="jobsNav">
-      <li class="active" onclick="navToInfo(0)">אודות התפקיד:</li>
-      <li onclick="navToInfo(1)">תחומי אחריות מרכזיים:</li>
-      <li onclick="navToInfo(2)">דרישות התפקיד:</li>
+      <li class="active" onclick="navToInfo(0)">אודות התפקיד</li>
+      <li onclick="navToInfo(1)">תחומי אחריות מרכזיים</li>
+      <li onclick="navToInfo(2)">דרישות התפקיד</li>
+      <li class="apply" onclick="navToInfo(3)">להגשת מועמדות</li>
     </ul>
     <div class="insideBox">
       <div class="jobsHeader">
@@ -197,7 +201,7 @@
             גמישות בשעות העבודה, כולל זמינות חלקית בשעות הערב, וניהול סדר יום באופן עצמאי.
             תחילת עבודה: אפריל 2021 (מיד אחרי פסח). הגשת מועמדות בצירוף קו"ח כאן.<br />
           </p>
-          <button class="applying">להגשת מועמדות</button>
+          <a id="applying"><i class="far fa-hand-point-left"></i> להגשת מועמדות</a>
         </div>
       </div>
     </div>
