@@ -9,9 +9,6 @@
   color: #111;
   scroll-behavior: smooth;
 }
-body{
-  direction: rtl;
-}
 nav {
   position: sticky;
   top: 0;
