@@ -9,6 +9,9 @@
   color: #111;
   scroll-behavior: smooth;
 }
+body{
+  direction: rtl;
+}
 nav {
   position: sticky;
   top: 0;
@@ -279,7 +282,7 @@ footer img {
   /* --------------- */
   .currentJob.active {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 20px;
   }
   .jobsNav {
