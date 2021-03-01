@@ -14,16 +14,17 @@ function toggleJob(id) {
   job.classList.toggle("active");
   changeInfoClass(0);
   const jobInfo = JOBS[id[0]][id[1]];
-  document.getElementById("currentJobTitle").innerHTML = '';
-  document.getElementById("info1").querySelector("p").innerHTML = '';
-  document.getElementById("info2").querySelector("p").innerHTML = '';
-  document.getElementById("info3").querySelector("p").innerHTML = '';
+  document.getElementById("currentJobTitle").innerHTML = "";
+  document.getElementById("info1").querySelector("p").innerHTML = "";
+  document.getElementById("info2").querySelector("p").innerHTML = "";
+  document.getElementById("info3").querySelector("p").innerHTML = "";
   const { about, responsibilities, requirement } = jobInfo;
   document.getElementById("currentJobTitle").innerHTML = jobInfo.title;
   document.getElementById("info1").querySelector("p").innerHTML = about;
-  document.getElementById("info2").querySelector("p").innerHTML = responsibilities;
+  document
+    .getElementById("info2")
+    .querySelector("p").innerHTML = responsibilities;
   document.getElementById("info3").querySelector("p").innerHTML = requirement;
-
 }
 function changeInfoClass(num) {
   for (let i = 0; i < jobsNavChildrens.length; i++) {
@@ -43,12 +44,7 @@ function navToInfo(num) {
       jobsInfo.scrollTop = info3.offsetTop - (jobsHeader.offsetHeight + 20);
       break;
     case 3:
-      {
-        applying.scrollIntoView();
-        setTimeout(() => {
-          changeInfoClass(3);
-        }, 900);
-      }
+      jobsInfo.scrollTop = applying.offsetTop - (jobsHeader.offsetHeight + 20);
       break;
   }
 }
@@ -83,14 +79,18 @@ const info3 = document.getElementById("info3");
 const applying = document.getElementById("applying");
 const jobsHeader = document.getElementById("jobsHeader");
 jobsInfo.addEventListener("scroll", (e) => {
-  console.log(jobsHeader.offsetHeight);
+  const scrollMax =
+    applying.offsetTop - jobsInfo.offsetHeight - jobsHeader.offsetHeight;
+
   jobsInfo.scrollTop >= 0 &&
     jobsInfo.scrollTop < info2.offsetTop - jobsHeader.offsetHeight &&
     changeInfoClass(0);
   jobsInfo.scrollTop >= info2.offsetTop - jobsHeader.offsetHeight &&
     jobsInfo.scrollTop < info3.offsetTop - jobsHeader.offsetHeight &&
     changeInfoClass(1);
-  jobsInfo.scrollTop >= applying.offsetTop - jobsHeader.offsetHeight &&
+  jobsInfo.scrollTop >= info3.offsetTop - jobsHeader.offsetHeight &&
+    jobsInfo.scrollTop < scrollMax &&
     changeInfoClass(2);
+  jobsInfo.scrollTop >= scrollMax && changeInfoClass(3);
 });
 const jobsNavChildrens = document.getElementById("jobsNav").children;
