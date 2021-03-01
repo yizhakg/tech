@@ -155,9 +155,6 @@ main {
 .container p {
   text-align: justify;
 }
-.container ul {
-  font-size: 0.9em;
-}
 #cont4 {
   position: relative;
   align-self: center;
