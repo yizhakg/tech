@@ -262,11 +262,12 @@ main {
   line-height: 40px;
   text-align: center;
   transition: 0.1s;
+  transform: translate(-10px,-10px);
   background: transparent;
   cursor: pointer;
 }
 .insideBox .close:hover {
-  transform: scale(1.2);
+  transform: scale(1.2)  translate(-9px,-8px);
 }
 .insideBox .jobsInfo {
   overflow-y: scroll;
@@ -404,6 +405,12 @@ footer .social li a i {
   nav .navUl li a {
     height: 100%;
     line-height: 450%;
+  }
+  .insideBox .close {
+    transform: translate(0px,0px);
+  }
+  .insideBox .close:hover {
+    transform: scale(1.2)  translate(0px,0px);
   }
   /* --------------- */
   .currentJob.active {
