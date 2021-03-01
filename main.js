@@ -10,18 +10,20 @@ function toggleMenu() {
 }
 
 function toggleJob(id) {
-  console.log(id);
   const job = document.querySelector(".currentJob");
   job.classList.toggle("active");
+  changeInfoClass(0);
   const jobInfo = JOBS[id[0]][id[1]];
+  document.getElementById("currentJobTitle").innerHTML = '';
+  document.getElementById("info1").querySelector("p").innerHTML = '';
+  document.getElementById("info2").querySelector("p").innerHTML = '';
+  document.getElementById("info3").querySelector("p").innerHTML = '';
   const { about, responsibilities, requirement } = jobInfo;
   document.getElementById("currentJobTitle").innerHTML = jobInfo.title;
   document.getElementById("info1").querySelector("p").innerHTML = about;
-  document
-    .getElementById("info2")
-    .querySelector("p").innerHTML = responsibilities;
+  document.getElementById("info2").querySelector("p").innerHTML = responsibilities;
   document.getElementById("info3").querySelector("p").innerHTML = requirement;
-  changeInfoClass(0);
+
 }
 function changeInfoClass(num) {
   for (let i = 0; i < jobsNavChildrens.length; i++) {
@@ -88,7 +90,7 @@ jobsInfo.addEventListener("scroll", (e) => {
   jobsInfo.scrollTop >= info2.offsetTop - jobsHeader.offsetHeight &&
     jobsInfo.scrollTop < info3.offsetTop - jobsHeader.offsetHeight &&
     changeInfoClass(1);
-  jobsInfo.scrollTop >= info3.offsetTop - jobsHeader.offsetHeight &&
+  jobsInfo.scrollTop >= applying.offsetTop - jobsHeader.offsetHeight &&
     changeInfoClass(2);
 });
 const jobsNavChildrens = document.getElementById("jobsNav").children;
