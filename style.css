@@ -9,6 +9,9 @@
   color: #111;
   scroll-behavior: smooth;
 }
+a{
+  pointer-events: visible;
+}
 nav {
   position: sticky;
   top: 0;
@@ -241,12 +244,14 @@ main {
 }
 .insideBox .jobsHeader {
   width: 100%;
-  background: inherit;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(10px);
 }
+.currentJob #currentJobTitle {
+  background: transparent;
+  }
 .insideBox .close {
   height: 40px;
   width: 40px;
@@ -254,6 +259,7 @@ main {
   line-height: 40px;
   text-align: center;
   transition: 0.1s;
+  background: transparent;
   cursor: pointer;
 }
 .insideBox .close:hover {
