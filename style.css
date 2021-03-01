@@ -1,13 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+:root{
+  --mainBlack:#03071e;
+  --mainWhite:#f8f9fa;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   direction: rtl;
   font-family: "Poppins", sans-serif;
-  color: #111;
+  color: var(--mainBlack);
   scroll-behavior: smooth;
+}
+body{
+  color: var(--mainBlack);
+  background: var(--mainWhite);
 }
 a {
   pointer-events: visible;
@@ -17,7 +24,7 @@ nav {
   top: 0;
   width: 100%;
   height: 60px;
-  background: white;
+  background: var(--mainWhite);
   display: flex;
   align-items: center;
   z-index: 10;
@@ -33,11 +40,11 @@ nav {
 }
 .toggle:hover,
 .toggle.active {
-  background: #111;
+  background: var(--mainBlack);
 }
 .toggle:hover::before,
 .toggle.active::before {
-  color: #fff;
+  color: var(--mainWhite);
 }
 .toggle::before {
   content: "\f0c9 ";
@@ -48,7 +55,7 @@ nav {
   line-height: 60px;
   text-align: center;
   font-size: 24px;
-  color: #111;
+  color: var(--mainBlack);
 }
 .toggle.active::before {
   content: "\f00d";
@@ -85,8 +92,8 @@ nav .navUl li a {
   transition: 0.5s;
 }
 nav .navUl li:hover a {
-  background: #111;
-  color: #fff;
+  background: var(--mainBlack);
+  color: var(--mainWhite);
   letter-spacing: 1px;
 }
 header {
@@ -176,8 +183,8 @@ main {
   margin-right: 10px;
 }
 #cont4 ul li:hover {
-  background: #111;
-  color: #fff;
+  background: var(--mainBlack);
+  color: var(--mainWhite);
   transform: scale(0.9);
 }
 #cont4 img {
@@ -220,13 +227,13 @@ main {
   transition: 0.5s;
 }
 .jobsNav li.active {
-  color: #111;
+  color: var(--mainBlack);
   font-weight: 600;
   background: rgba(255, 255, 255, 0.8);
 }
 .jobsNav .apply.active {
   background: tomato;
-  color: #fff;
+  color: var(--mainWhite);
   font-weight: 600;
 }
 .insideBox {
@@ -291,11 +298,11 @@ main {
   transition: 0.3s;
 }
 .insideBox #applying:hover {
-  background: #111;
-  color: #fff;
+  background: var(--mainBlack);
+  color: var(--mainWhite);
 }
 .insideBox #applying:hover i {
-  color: #fff;
+  color: var(--mainWhite);
 }
 footer {
   width: 100%;
@@ -373,7 +380,7 @@ footer .social li a i {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
+    background: var(--mainWhite);
     margin: 0;
     transition: 1s;
   }
