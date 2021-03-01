@@ -83,12 +83,12 @@ jobsInfo.addEventListener("scroll", (e) => {
     applying.offsetTop - jobsInfo.offsetHeight - jobsHeader.offsetHeight;
 
   jobsInfo.scrollTop >= 0 &&
-    jobsInfo.scrollTop < info2.offsetTop - jobsHeader.offsetHeight &&
+    jobsInfo.scrollTop < info2.offsetTop - jobsHeader.offsetHeight-40 &&
     changeInfoClass(0);
-  jobsInfo.scrollTop >= info2.offsetTop - jobsHeader.offsetHeight &&
-    jobsInfo.scrollTop < info3.offsetTop - jobsHeader.offsetHeight &&
+  jobsInfo.scrollTop >= info2.offsetTop - jobsHeader.offsetHeight-40 &&
+    jobsInfo.scrollTop < info3.offsetTop - jobsHeader.offsetHeight-40 &&
     changeInfoClass(1);
-  jobsInfo.scrollTop >= info3.offsetTop - jobsHeader.offsetHeight &&
+  jobsInfo.scrollTop >= info3.offsetTop - jobsHeader.offsetHeight-40 &&
     jobsInfo.scrollTop < scrollMax &&
     changeInfoClass(2);
   jobsInfo.scrollTop >= scrollMax && changeInfoClass(3);
