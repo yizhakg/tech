@@ -16,7 +16,6 @@ nav {
   height: 60px;
   background: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   z-index: 10;
 }
@@ -51,21 +50,33 @@ nav {
 .toggle.active::before {
   content: "\f00d";
 }
-nav img {
-  height: 60px;
-  width: 60px;
+nav .logo {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 50px;
+  width: auto;
 }
 nav .navUl {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 20px;
   font-weight: 700;
 }
+
 nav .navUl li {
   list-style: none;
 }
+nav .navUl li:first-child {
+  width: 40px;
+}
+nav .navUl li:first-child img {
+display: none;
+}
 nav .navUl li a {
   display: block;
-  padding: 10px 30px;
+  padding: 15px 30px;
   font-size: 20px;
   text-decoration: none;
   transition: 0.5s;
@@ -136,7 +147,10 @@ main {
   font-weight: 600;
   line-height: 50px;
   padding-top: 70px;
-  margin-right: 50px;
+  margin: 0 30px;
+}
+.container p {
+  text-align: justify;
 }
 .container ul {
   font-size: 0.9em;
@@ -290,7 +304,7 @@ footer {
   align-items: center;
   text-align: center;
   font-weight: 600;
-  margin: 20px 0;
+  margin-bottom: 50px;
 }
 footer p {
   border-top: 2px solid;
@@ -300,30 +314,47 @@ footer img {
   height: 50px;
   width: auto;
 }
+footer .social{
+  display: flex;
+  flex-wrap: wrap;
+}
+footer .social li{
+list-style: none;
+margin: 10px;
+}
+footer .social li a i{
+font-size: 1.5em;
+transition: .5s;
+}
+.fas.fa-globe:hover{
+color: slategray;
+}
+.fab.fa-facebook-f:hover{
+color: #4267B2;
+}
 /* ---------------- */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
   body {
     font-size: 12px;
   }
-
   .header {
     font-size: 1.7em;
   }
   .container {
     line-height: 30px;
-    width: 70%;
+    width: 80%;
     min-height: unset;
   }
   #cont4 {
-    flex-direction: column;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   #cont4 img {
     display: none;
   }
   #cont4 ul {
-    margin: 40px 0;
+    margin: 40px 20px;
   }
   .toggle {
     display: block;
@@ -349,6 +380,15 @@ footer img {
     width: 100%;
     height: 100%;
     text-align: center;
+  }
+  nav .navUl li:first-child {
+    width: 100%;
+    height: 120px;
+  }
+  nav .navUl li:first-child img {
+  display: block;
+  height: 70px;
+  margin:  0 auto;
   }
   nav .navUl li a {
     height: 100%;
@@ -379,14 +419,8 @@ footer img {
   .insideBox .jobsInfo p {
     width: 90%;
     line-height: 2.3em;
-    text-align: justify;
   }
   .insideBox .jobsHeader {
     align-items: flex-start;
   }
-  /* .insideBox .close{
-    position: absolute;
-    top: 0;
-    left: 0;
-  } */
 }
