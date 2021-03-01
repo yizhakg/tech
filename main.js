@@ -1,3 +1,5 @@
+import { JOBS } from "./data.js";
+console.log(JOBS);
 function toggleMenu() {
   if (window.innerWidth < 600) {
     let navUl = document.querySelector(".navUl");
@@ -7,14 +9,22 @@ function toggleMenu() {
   }
 }
 
-function toggleJob(e) {
+function toggleJob(id) {
+  console.log(id);
   const job = document.querySelector(".currentJob");
-  document.getElementById("currentJobTitle").innerHTML = e.innerHTML.slice(31);
   job.classList.toggle("active");
+  const jobInfo = JOBS[id[0]][id[1]];
+  const { about, responsibilities, requirement } = jobInfo;
+  document.getElementById("currentJobTitle").innerHTML = jobInfo.title;
+  document.getElementById("info1").querySelector("p").innerHTML = about;
+  document
+    .getElementById("info2")
+    .querySelector("p").innerHTML = responsibilities;
+  document.getElementById("info3").querySelector("p").innerHTML = requirement;
   changeInfoClass(0);
 }
 function changeInfoClass(num) {
-  for (i = 0; i < jobsNavChildrens.length; i++) {
+  for (let i = 0; i < jobsNavChildrens.length; i++) {
     jobsNavChildrens[i].classList.remove("active");
   }
   jobsNavChildrens[num].classList.add("active");
@@ -22,13 +32,13 @@ function changeInfoClass(num) {
 function navToInfo(num) {
   switch (num) {
     case 0:
-      jobsInfo.scrollTop = info1.offsetTop - 66;
+      jobsInfo.scrollTop = info1.offsetTop - (jobsHeader.offsetHeight + 20);
       break;
     case 1:
-      jobsInfo.scrollTop = info2.offsetTop - 66;
+      jobsInfo.scrollTop = info2.offsetTop - (jobsHeader.offsetHeight + 20);
       break;
     case 2:
-      jobsInfo.scrollTop = info3.offsetTop - 66;
+      jobsInfo.scrollTop = info3.offsetTop - (jobsHeader.offsetHeight + 20);
       break;
     case 3:
       {
@@ -40,19 +50,45 @@ function navToInfo(num) {
       break;
   }
 }
+window.onload = () => {
+  const cont4Li = document.getElementById("cont4").querySelectorAll("li");
+  cont4Li.forEach((item) => {
+    item.addEventListener("click", () => toggleJob(item.id));
+  });
+  const jobsNavLi = document.getElementById("jobsNav").querySelectorAll("li");
+  jobsNavLi.forEach((item, index) => {
+    item.addEventListener("click", () => navToInfo(index));
+  });
+  const close = document
+    .getElementById("close")
+    .addEventListener("click", () => {
+      const job = document.querySelector(".currentJob");
+      job.classList.remove("active");
+    });
+  const toggle = document
+    .getElementById("toggle")
+    .addEventListener("click", toggleMenu);
 
+  const navUlLi = document.getElementById("navUl").querySelectorAll("li");
+  navUlLi.forEach((item) => {
+    item.addEventListener("click", toggleMenu);
+  });
+};
 const jobsInfo = document.getElementById("jobsInfo");
 const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const applying = document.getElementById("applying");
+const jobsHeader = document.getElementById("jobsHeader");
 jobsInfo.addEventListener("scroll", (e) => {
+  console.log(jobsHeader.offsetHeight);
   jobsInfo.scrollTop >= 0 &&
-    jobsInfo.scrollTop < info2.offsetTop - 68 &&
+    jobsInfo.scrollTop < info2.offsetTop - jobsHeader.offsetHeight &&
     changeInfoClass(0);
-  jobsInfo.scrollTop >= info2.offsetTop - 68 &&
-    jobsInfo.scrollTop < info3.offsetTop - 68 &&
+  jobsInfo.scrollTop >= info2.offsetTop - jobsHeader.offsetHeight &&
+    jobsInfo.scrollTop < info3.offsetTop - jobsHeader.offsetHeight &&
     changeInfoClass(1);
-  jobsInfo.scrollTop >= info3.offsetTop - 68 && changeInfoClass(2);
+  jobsInfo.scrollTop >= info3.offsetTop - jobsHeader.offsetHeight &&
+    changeInfoClass(2);
 });
 const jobsNavChildrens = document.getElementById("jobsNav").children;
