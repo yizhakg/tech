@@ -352,6 +352,10 @@ footer .social li a i {
   }
   #cont4 ul {
     margin: 40px 20px;
+    text-align: center;
+  }
+  #cont4 h2{
+    text-align: center;
   }
   .toggle {
     display: block;
