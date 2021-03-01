@@ -126,15 +126,18 @@ header .fas.fa-rss {
   }
 }
 header .downArw {
-  animation: upDown 1s infinite;
+  display: block;
+  height: 80px;
+  width: 80px;
+  animation: upDown 1.3s infinite;
 }
 @keyframes upDown {
   0%,
   100% {
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   50% {
-    transform: translateY(55px);
+    transform: translateY(45px);
   }
 }
 main {
